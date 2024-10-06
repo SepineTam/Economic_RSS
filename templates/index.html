@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}学术期刊爬虫系统 - 主页{% endblock %}
+
+{% block content %}
+    <h1>欢迎使用学术期刊爬虫系统</h1>
+    <p style="text-align: center; margin-bottom: 30px;">追踪最新的学术研究动态</p>
+    <ul>
+        <li>
+            <h3>期刊列表</h3>
+            <p>查看所有被追踪的学术期刊。</p>
+            <a href="{{ url_for('get_journals') }}" class="btn">查看</a>
+        </li>
+        <li>
+            <h3>订阅更新</h3>
+            <p>订阅感兴趣的期刊更新。</p>
+            <a href="#" class="btn">订阅</a>
+        </li>
+        <li>
+            <h3>RSS Feeds</h3>
+            <p>获取期刊的 RSS 订阅链接。</p>
+            <a href="#" class="btn">获取</a>
+        </li>
+        <li>
+            <h3>关于我们</h3>
+            <p>了解更多关于这个项目的信息。</p>
+            <a href="#" class="btn">了解</a>
+        </li>
+    </ul>
+{% endblock %}

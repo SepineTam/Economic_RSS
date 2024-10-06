@@ -1,0 +1,37 @@
+name: Quarterly Journal of Economics
+base_url: https://academic.oup.com/qje
+frequency: daily
+selector: ".al-article-item-wrap"
+language: en
+
+parsing_rules:
+  title: "h5.al-title"
+  authors: ".al-authors"
+  abstract: ".snippet"
+  link: "h5.al-title a"
+
+pagination:
+  enabled: true
+  next_page_selector: ".pagination-next-link"
+  max_pages: 5
+
+http_settings:
+  headers:
+    User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  timeout: 30
+  retries: 3
+
+rss:
+  title: "QJE Latest Articles"
+  description: "Latest articles from the Quarterly Journal of Economics"
+  link: "https://academic.sepinetam.com/rss/qje.xml"
+  max_items: 20
+
+email:
+  subject_template: "New articles in {journal_name}"
+  body_template: "New articles have been published in {journal_name}:\n\n{article_list}"
+  max_articles_per_email: 10
+
+storage:
+  data_dir: "./data/qje/"
+  file_format: "json"

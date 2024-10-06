@@ -1,0 +1,9 @@
+journals:
+  - name: 经济学（季刊）
+    config_file: qkml.yaml
+  - name: Quarterly Journal of Economics
+    config_file: qje.yaml
+  - name: American Economic Review
+    config_file: aer.yaml
+  - name: Journal of Political Economy
+    config_file: jpe.yaml

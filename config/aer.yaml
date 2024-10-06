@@ -1,0 +1,37 @@
+name: American Economic Review
+base_url: https://www.aeaweb.org/journals/aer
+frequency: daily
+selector: ".journal-article"
+language: en
+
+parsing_rules:
+  title: "h3.title"
+  authors: ".author"
+  abstract: ".abstract"
+  link: "h3.title a"
+
+pagination:
+  enabled: true
+  next_page_selector: ".next"
+  max_pages: 5
+
+http_settings:
+  headers:
+    User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  timeout: 30
+  retries: 3
+
+rss:
+  title: "AER Latest Articles"
+  description: "Latest articles from the American Economic Review"
+  link: "https://academic.sepinetam.com/rss/aer.xml"
+  max_items: 20
+
+email:
+  subject_template: "New articles in {journal_name}"
+  body_template: "New articles have been published in {journal_name}:\n\n{article_list}"
+  max_articles_per_email: 10
+
+storage:
+  data_dir: "./data/aer/"
+  file_format: "json"

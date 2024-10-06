@@ -1,0 +1,37 @@
+name: Journal of Political Economy
+base_url: https://www.journals.uchicago.edu/toc/jpe/current
+frequency: daily
+selector: ".issue-item"
+language: en
+
+parsing_rules:
+  title: "h5.issue-item__title"
+  authors: ".issue-item__authors"
+  abstract: ".issue-item__abstract"
+  link: "h5.issue-item__title a"
+
+pagination:
+  enabled: false
+  next_page_selector: ""
+  max_pages: 1
+
+http_settings:
+  headers:
+    User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  timeout: 30
+  retries: 3
+
+rss:
+  title: "JPE Latest Articles"
+  description: "Latest articles from the Journal of Political Economy"
+  link: "https://academic.sepinetam.com/rss/jpe.xml"
+  max_items: 20
+
+email:
+  subject_template: "New articles in {journal_name}"
+  body_template: "New articles have been published in {journal_name}:\n\n{article_list}"
+  max_articles_per_email: 10
+
+storage:
+  data_dir: "./data/jpe/"
+  file_format: "json"

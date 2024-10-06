@@ -1,0 +1,21 @@
+colors:
+  background: '#F2F2F7'
+  text: '#1D1D1F'
+  container_background: '#FFFFFF'
+  item_background: '#E6F3FF'  # 更改为柔和的天蓝色
+  button_background: '#007AFF'
+  button_text: '#FFFFFF'
+  button_hover_background: '#0056B3'
+  button_hover_text: '#FFFFFF'
+  accent: '#FF9500'
+
+fonts:
+  main: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+
+sizes:
+  container_max_width: '1200px'
+  border_radius: '10px'
+  button_border_radius: '20px'
+
+animations:
+  transition_duration: '0.3s'

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ journal_name }} - 文章列表{% endblock %}
+
+{% block content %}
+    <h1>{{ journal_name }} 文章列表</h1>
+    {% if articles %}
+        <ul>
+            {% for article in articles %}
+                <li>
+                    <h2><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></h2>
+                    <p><strong>作者：</strong>{{ article.authors }}</p>
+                    <p><strong>摘要：</strong>{{ article.abstract }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>暂无文章。</p>
+    {% endif %}
+    <p><a href="{{ url_for('get_journals') }}" class="btn">返回期刊列表</a></p>
+{% endblock %}

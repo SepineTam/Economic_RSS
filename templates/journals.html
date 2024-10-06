@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}学术期刊爬虫系统 - 期刊列表{% endblock %}
+
+{% block content %}
+    <h1>期刊列表</h1>
+    {% if journals %}
+        <ul>
+            {% for journal in journals %}
+                <li>
+                    <h3><a href="{{ url_for('get_articles', journal_name=journal.name) }}">{{ journal.name }}</a></h3>
+                    <p>{{ journal.url }}</p>
+                    <p>
+                        {% if journal.language == 'en' %}
+                            <span>英文</span>
+                        {% elif journal.language == 'zh-CN' %}
+                            <span>中文</span>
+                        {% else %}
+                            <span>{{ journal.language }}</span>
+                        {% endif %}
+                    </p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>目前没有可用的期刊。</p>
+    {% endif %}
+    <p><a href="{{ url_for('index') }}" class="btn">返回首页</a></p>
+    <!-- 添加调试信息 -->
+    <p><small>Debug: 加载的期刊数量: {{ journals|length }}</small></p>
+{% endblock %}

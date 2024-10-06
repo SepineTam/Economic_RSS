@@ -1,0 +1,37 @@
+name: 经济学（季刊）
+base_url: https://ceq.ccer.pku.edu.cn/qkml/index.htm
+frequency: daily
+selector: "#article-list"  # 这里需要根据实际网页结构调整
+language: zh-CN
+
+parsing_rules:
+  title: "h2.article-title"
+  authors: "p.article-authors"
+  abstract: "div.article-abstract"
+  link: "a.article-link"
+
+pagination:
+  enabled: true
+  next_page_selector: "a.next-page"
+  max_pages: 5
+
+http_settings:
+  headers:
+    User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  timeout: 30
+  retries: 3
+
+rss:
+  title: 经济学（季刊）最新文章
+  description: 来自经济学（季刊）的最新文章
+  link: https://academic.sepinetam.com/rss/qkml.xml
+  max_items: 20
+
+email:
+  subject_template: "{journal_name}有新文章发布"
+  body_template: "{journal_name}发布了新文章：\n\n{article_list}"
+  max_articles_per_email: 10
+
+storage:
+  data_dir: "./data/qkml/"
+  file_format: "json"
